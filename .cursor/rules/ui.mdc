@@ -1,0 +1,16 @@
+---
+description: Portfolio UI Rules
+globs: ["src/**/*.tsx"]
+alwaysApply: true
+---
+
+# UI Principles
+
+- Use shadcn/ui components whenever possible.
+- Use Tailwind utilities instead of custom CSS.
+- Keep components under 150 lines.
+- Prefer composition over duplication.
+- Mobile-first responsive design.
+- Use semantic HTML.
+- Avoid unnecessary animations.
+- Maintain Vercel-style minimal aesthetics.
