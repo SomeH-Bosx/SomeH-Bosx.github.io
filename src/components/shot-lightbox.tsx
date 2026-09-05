@@ -90,7 +90,7 @@ export function ShotLightbox({
       role="dialog"
       aria-modal="true"
       aria-label={alt}
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black/80"
+      className="fixed inset-0 z-[80] flex items-center justify-center overflow-hidden bg-black/80"
       onClick={onClose}
     >
       {/* eslint-disable-next-line @next/next/no-img-element -- lightbox preview */}

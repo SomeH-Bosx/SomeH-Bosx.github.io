@@ -1,11 +1,21 @@
 export const site = {
   name: "霍宝珊",
+  brandName: "BoxsHUO",
+  heroTitle: "BoxsHUO · Portfolio",
+  avatar: "/images/avatar.png",
   role: "AI Application Engineer",
   brand: "Data & AI Builder",
   location: "深圳 / 广州",
   status: "Open to Intern",
   tagline:
     "专注 AI 应用开发与工作流设计，擅长利用 LLM + RAG 构建真实可落地的产品。",
+  introZhBold:
+    "相信 AI 的价值，不在于替代人，而在于让人思考得更深、创造得更快。",
+  introZh: "我享受发现问题、拆解问题，并用技术一步步将想法变成现实。",
+  introEnBold:
+    "The value of AI isn't replacing people—it's helping us think deeper and build faster.",
+  introEn:
+    "I enjoy discovering problems, breaking them down, and turning ideas into reality through technology.",
   about:
     "以数据分析与数学建模为底，用工程方式把大模型做成可检索、可评估、可交付的应用。",
   skills: ["LangChain", "FastAPI", "Python", "RAG"],

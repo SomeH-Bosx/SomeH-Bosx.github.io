@@ -14,9 +14,16 @@ export function Navbar() {
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
         <Link
           href="/"
-          className="text-sm font-medium tracking-tight text-foreground"
+          className="flex items-center gap-2 text-sm font-medium tracking-tight text-foreground"
         >
-          {site.name}
+          {/* eslint-disable-next-line @next/next/no-img-element -- brand mark */}
+          <img
+            src={site.avatar}
+            alt=""
+            className="size-7 rounded-full object-cover ring-1 ring-white/10"
+            suppressHydrationWarning
+          />
+          {site.brandName}
         </Link>
         <nav aria-label="主导航" className="flex items-center gap-0.5 sm:gap-1">
           {navLinks.map((link) => {
