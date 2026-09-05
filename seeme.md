@@ -104,13 +104,37 @@ FinPilot 详情按产品思维来写，不是堆代码：
 
 现在不用准备素材。约定路径已经写进数据文件：
 
-| 用途                 | 放到这里                                             |
-| :------------------- | :--------------------------------------------------- |
-| RAG 封面             | `public/images/projects/rag/cover.jpg`               |
-| RAG 截图             | `public/images/projects/rag/shot-1.jpg`（2、3 同理） |
-| FinPilot 封面 / 截图 | `public/images/projects/finpilot/`                   |
-| RAG 演示视频         | `public/videos/rag-demo.mp4`                         |
-| FinPilot 演示视频    | `public/videos/finpilot-demo.mp4`                    |
-| 简历                 | `public/resume.pdf`                                  |
+| 用途              | 放到这里                          |
+| :---------------- | :-------------------------------- |
+| RAG 演示视频      | `public/videos/rag-demo.mp4`      |
+| FinPilot 演示视频 | `public/videos/finpilot-demo.mp4` |
+| 简历              | `public/resume.pdf`               |
 
 文件名对上就会自动显示。若文件名不同，改 `src/data/projects.ts` 里的路径即可。视频请压到约 20MB 以内（720p、H.264）；更大建议改 B 站 / YouTube 外链。
+
+
+
+# 还没做（按优先级）
+
+1. 两段 Demo 视频（现在最缺）
+
+`public/videos/` 里还只有占位，详情页 Demo 仍是「放入文件后即可播放」。
+
+| 文件                              | 建议                  |
+| :-------------------------------- | :-------------------- |
+| `public/videos/rag-demo.mp4`      | 约 90 秒，尽量 < 20MB |
+| `public/videos/finpilot-demo.mp4` | 同上                  |
+
+文件名对上就会自动出现，不用改代码。
+
+2. GitHub Pages 部署（你说过先不做）
+
+还没有 `.github/workflows`，站点只在本地 `localhost:3000`。素材齐了再上 `username.github.io` 更合适。
+
+3. 建议你过一眼的文案（可选）
+
+详情页有些内容是按 README 扩写的，不一定完全等于真实项目：
+
+- RAG：周期 5 天、Ollama + Qwen、三条 Reflection
+- FinPilot：周期 7 天、50/30/20、用户画像、PRD、下一步
+- About 学校只写了「双非二本」，没有学校全称

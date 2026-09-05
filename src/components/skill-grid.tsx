@@ -6,11 +6,14 @@ export function SkillGrid() {
     <div>
       <h2
         id="skills-heading"
-        className="text-sm font-medium tracking-wide text-muted-foreground"
+        className="text-lg font-medium tracking-tight sm:text-xl"
       >
         Tech Stack
       </h2>
-      <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <p className="mt-1 text-sm text-muted-foreground">
+        按能力分层，不堆 logo。
+      </p>
+      <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
         {site.skillMatrix.map((group) => (
           <li key={group.category}>
             <Card size="sm" className="h-full rounded-[20px] bg-card/80">

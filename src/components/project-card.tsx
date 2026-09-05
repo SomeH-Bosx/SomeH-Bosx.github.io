@@ -25,6 +25,18 @@ export function ProjectCard({ project }: { project: Project }) {
           <span className="sr-only">查看 {project.title}</span>
         </Link>
         <ProjectCover src={project.cover} alt={`${project.title} 封面`} />
+        <div className="grid grid-cols-3 gap-1 px-4">
+          {project.shots.slice(0, 3).map((shot) => (
+            // eslint-disable-next-line @next/next/no-img-element -- card thumbnails
+            <img
+              key={shot}
+              src={shot}
+              alt=""
+              className="aspect-[4/3] w-full rounded-lg object-cover"
+              suppressHydrationWarning
+            />
+          ))}
+        </div>
         <CardHeader>
           <p className="text-xs tracking-wide text-muted-foreground uppercase">
             {project.subtitle}

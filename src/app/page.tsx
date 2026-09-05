@@ -15,7 +15,7 @@ export default function Home() {
         aria-labelledby="skills-heading"
         className="scroll-mt-14 border-t border-white/5"
       >
-        <div className="mx-auto max-w-5xl px-6 py-20 sm:py-24">
+        <div className="mx-auto max-w-5xl px-6 py-14 sm:py-16">
           <SkillGrid />
         </div>
       </section>
