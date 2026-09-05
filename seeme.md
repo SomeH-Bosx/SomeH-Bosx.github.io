@@ -114,27 +114,144 @@ FinPilot 详情按产品思维来写，不是堆代码：
 
 
 
-# 还没做（按优先级）
 
-1. 两段 Demo 视频（现在最缺）
 
-`public/videos/` 里还只有占位，详情页 Demo 仍是「放入文件后即可播放」。
 
-| 文件                              | 建议                  |
-| :-------------------------------- | :-------------------- |
-| `public/videos/rag-demo.mp4`      | 约 90 秒，尽量 < 20MB |
-| `public/videos/finpilot-demo.mp4` | 同上                  |
 
-文件名对上就会自动出现，不用改代码。
+# 部署
 
-2. GitHub Pages 部署（你说过先不做）
+当前项目已经按 **GitHub Pages 用户主页** 配好了：`output: "export"`、无 `basePath`。按下面做完后，网址就是：
 
-还没有 `.github/workflows`，站点只在本地 `localhost:3000`。素材齐了再上 `username.github.io` 更合适。
+**https://someh-bosx.github.io/**
 
-3. 建议你过一眼的文案（可选）
+仓库名必须是 `SomeH-Bosx.github.io`。你现在推到的是 [profit](https://github.com/SomeH-Bosx/profit)，GitHub 上还没有 `SomeH-Bosx.github.io`（打开会 404）。继续用 `profit` 的话，网址会变成 `https://someh-bosx.github.io/profit/`，还要改 `basePath`，不建议。
 
-详情页有些内容是按 README 扩写的，不一定完全等于真实项目：
+---
 
-- RAG：周期 5 天、Ollama + Qwen、三条 Reflection
-- FinPilot：周期 7 天、50/30/20、用户画像、PRD、下一步
-- About 学校只写了「双非二本」，没有学校全称
+### 1. 把现有仓库改成用户主页仓库
+
+1. 打开 [https://github.com/SomeH-Bosx/profit](https://github.com/SomeH-Bosx/profit)
+2. **Settings → General → Repository name**，改成 `SomeH-Bosx.github.io`，保存
+3. 本地改远程地址（PowerShell）：
+
+```powershell
+cd D:\Carrer\OwnWeb
+git remote set-url origin https://github.com/SomeH-Bosx/SomeH-Bosx.github.io.git
+git remote -v
+```
+
+应显示 `SomeH-Bosx/SomeH-Bosx.github.io.git`。
+
+---
+
+### 2. 加两个部署文件
+
+GitHub Pages 默认走 Jekyll，会丢掉 Next 的 `_next` 目录，所以要有 `.nojekyll`。再用 Actions 在每次推送 `main` 时自动构建并发布。
+
+**`public/.nojekyll`**：空文件即可。
+
+**`.github/workflows/deploy.yml`**：
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+提交并推送：
+
+```powershell
+git add public/.nojekyll .github/workflows/deploy.yml
+git commit -m "ci: deploy static site to GitHub Pages"
+git push origin main
+```
+
+---
+
+### 3. 打开 GitHub Pages
+
+1. 打开 [https://github.com/SomeH-Bosx/SomeH-Bosx.github.io/settings/pages](https://github.com/SomeH-Bosx/SomeH-Bosx.github.io/settings/pages)
+2. **Build and deployment → Source** 选 **GitHub Actions**（不要选 Deploy from a branch）
+3. 到 **Actions** 看名为 `Deploy to GitHub Pages` 的 workflow，等绿勾
+4. 第一次可能要在 Actions 页点 **Allow** / 确认 Pages 环境权限
+
+大约 1–3 分钟后访问：
+
+**https://someh-bosx.github.io/**
+
+子页面带尾斜杠，例如：
+
+- https://someh-bosx.github.io/projects/
+- https://someh-bosx.github.io/resume/
+- https://someh-bosx.github.io/contact/
+
+---
+
+### 4. 之后怎么更新
+
+改代码后照常：
+
+```powershell
+git add .
+git commit -m "feat: your message"
+git push origin main
+```
+
+Actions 跑完，线上就会更新。
+
+---
+
+### 容易踩的坑
+
+| 现象                                       | 原因                                                |
+| ------------------------------------------ | --------------------------------------------------- |
+| 打开全白 / CSS 全挂                        | 没加 `.nojekyll`，或 Source 还停在 branch           |
+| `https://someh-bosx.github.io/profit/` 404 | 仓库还叫 `profit`，或没改远程                       |
+| Actions 失败 `pages: write`                | Settings → Actions → General 允许 workflow 写 Pages |
+| 视频播不了                                 | 单文件超过 100MB 推不上去；尽量压到 20MB 左右       |
+
+本地预览导出结果：
+
+```powershell
+npm run build
+npx --yes serve out
+```
+
+需要的话我可以直接帮你在项目里建好 `.nojekyll` 和 workflow 文件。
