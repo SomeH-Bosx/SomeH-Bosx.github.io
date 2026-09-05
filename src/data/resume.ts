@@ -33,7 +33,7 @@ export const resumeSkillMatrix = [
 export const resumeProjects = [
   {
     slug: "rag",
-    date: "2026.07",
+    date: "2026.07 ~ 2026.08",
     title: "Enterprise RAG｜本地企业知识库 RAG 问答系统",
     role: "个人开发",
     href: "/projects/rag/",
@@ -60,7 +60,7 @@ export const resumeProjects = [
   },
   {
     slug: "finpilot",
-    date: "2026.07",
+    date: "2026.07 ~ 2026.08",
     title: "FinPilot｜AI 零基预算 Copilot",
     role: "AI 应用 · 全栈 · 个人开发",
     href: "/projects/finpilot/",

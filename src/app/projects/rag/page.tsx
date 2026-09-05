@@ -7,12 +7,11 @@ import { ProjectHero } from "@/components/project-hero";
 import { ProjectVideo } from "@/components/project-video";
 import { getProject } from "@/data/projects";
 import { ragCase } from "@/data/rag";
-import { site } from "@/data/site";
 
 const project = getProject("rag");
 
 export const metadata: Metadata = {
-  title: `${project.title} · ${site.name}`,
+  title: project.title,
   description: project.description,
 };
 

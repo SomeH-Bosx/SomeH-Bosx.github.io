@@ -10,7 +10,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/ca
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: `Contact · ${site.name}`,
+  title: "Contact",
   description: site.contactLine,
 };
 

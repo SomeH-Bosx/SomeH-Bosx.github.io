@@ -49,7 +49,7 @@ export function ProjectHero({
         </Link>
       </div>
       <div className="mt-12">
-        <StatCards items={meta} className="lg:grid-cols-4" />
+        <StatCards items={meta} className="sm:grid-cols-2 lg:grid-cols-5" />
       </div>
       <ShotGallery shots={project.shots} title={project.title} />
     </>

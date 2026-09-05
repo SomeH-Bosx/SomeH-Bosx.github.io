@@ -8,12 +8,11 @@ import { ProjectVideo } from "@/components/project-video";
 import { StatCards } from "@/components/stat-cards";
 import { finpilotCase } from "@/data/finpilot";
 import { getProject } from "@/data/projects";
-import { site } from "@/data/site";
 
 const project = getProject("finpilot");
 
 export const metadata: Metadata = {
-  title: `${project.title} · ${site.name}`,
+  title: project.title,
   description: project.description,
 };
 

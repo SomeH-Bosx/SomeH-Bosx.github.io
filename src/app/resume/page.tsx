@@ -12,7 +12,7 @@ import { resumeAbout, resumeSkillMatrix } from "@/data/resume";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: `Resume · ${site.name}`,
+  title: "Resume",
   description: site.about,
 };
 

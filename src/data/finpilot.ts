@@ -1,7 +1,8 @@
 export const finpilotCase = {
   quote: "重点不是再做一个记账工具，而是让钱的归属和预算决策变得可执行。",
   meta: [
-    { label: "周期", value: "7 天" },
+    { label: "开发时间", value: "2026.07 ~ 2026.08" },
+    { label: "周期", value: "1 个月" },
     { label: "角色", value: "产品 + 开发" },
     { label: "技术", value: "React / FastAPI" },
     { label: "重点", value: "产品思维" },

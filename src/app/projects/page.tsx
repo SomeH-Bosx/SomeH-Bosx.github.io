@@ -4,10 +4,9 @@ import { PageHeader } from "@/components/page-header";
 import { PageShell } from "@/components/page-shell";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/data/projects";
-import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: `Projects · ${site.name}`,
+  title: "Projects",
   description: "Featured case studies in AI application engineering.",
 };
 
