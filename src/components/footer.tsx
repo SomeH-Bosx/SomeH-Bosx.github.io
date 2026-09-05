@@ -14,14 +14,9 @@ export function Footer() {
           <Link href={site.github} className="hover:text-foreground">
             GitHub
           </Link>
-          <a
-            href={site.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-foreground"
-          >
+          <Link href="/resume/" className="hover:text-foreground">
             Resume
-          </a>
+          </Link>
           <CopyEmailButton className="cursor-pointer appearance-none bg-transparent p-0 text-inherit hover:text-foreground">
             Contact
           </CopyEmailButton>

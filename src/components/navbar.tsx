@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { HashLink } from "@/components/hash-link";
 import { navLinks, site } from "@/data/site";
 import { cn } from "@/lib/utils";
 
@@ -19,32 +18,19 @@ export function Navbar() {
         >
           {site.name}
         </Link>
-        <nav aria-label="主导航" className="flex items-center gap-1">
+        <nav aria-label="主导航" className="flex items-center gap-0.5 sm:gap-1">
           {navLinks.map((link) => {
             const isActive =
               link.href === "/"
                 ? pathname === "/"
-                : link.href.includes("#projects")
-                  ? pathname.startsWith("/projects")
-                  : pathname.startsWith(link.href);
+                : pathname.startsWith(link.href.replace(/\/$/, ""));
 
-            return link.href.includes("#") ? (
-              <HashLink
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "rounded-lg px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground",
-                  isActive && "text-foreground"
-                )}
-              >
-                {link.label}
-              </HashLink>
-            ) : (
+            return (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "rounded-lg px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground",
+                  "rounded-lg px-2.5 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground sm:px-3",
                   isActive && "text-foreground"
                 )}
               >

@@ -47,7 +47,7 @@ export default function FinpilotProjectPage() {
           <ArchitectureFlow steps={finpilotCase.aiWorkflow} />
         </CaseSection>
         <CaseSection index="06" title="Demo 视频">
-          <ProjectVideo src={project.video} />
+          <ProjectVideo src={project.video} layout="portrait" />
         </CaseSection>
         <CaseSection index="07" title="下一步">
           <CaseList items={finpilotCase.next} />

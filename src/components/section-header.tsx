@@ -6,7 +6,7 @@ export function SectionHeader({
 }: {
   id?: string;
   title: string;
-  kicker: string;
+  kicker?: string;
   aside?: string;
 }) {
   return (
@@ -18,9 +18,11 @@ export function SectionHeader({
         >
           {title}
         </h2>
-        <p className="mt-1 max-w-xl text-sm leading-relaxed text-muted-foreground">
-          {kicker}
-        </p>
+        {kicker ? (
+          <p className="mt-1 max-w-xl text-sm leading-relaxed text-muted-foreground">
+            {kicker}
+          </p>
+        ) : null}
       </div>
       {aside ? (
         <p className="shrink-0 text-sm text-muted-foreground">{aside}</p>

@@ -16,7 +16,7 @@ const geist = Geist({
 
 export const metadata: Metadata = {
   title: `${site.name} · ${site.role}`,
-  description: site.tagline,
+  description: `${site.role} · ${site.brand}. ${site.tagline}`,
 };
 
 export default function RootLayout({

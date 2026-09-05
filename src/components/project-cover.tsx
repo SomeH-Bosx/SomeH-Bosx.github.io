@@ -11,12 +11,12 @@ export function ProjectCover({ src, alt }: ProjectCoverProps) {
   const [failed, setFailed] = useState(false);
 
   return (
-    <div className="relative aspect-[16/10] overflow-hidden bg-[#0c0c12]">
+    <div className="relative aspect-[16/9] overflow-hidden bg-[#0c0c12]">
       {failed ? (
         <>
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,oklch(0.42_0.14_280/0.35),transparent_55%),radial-gradient(ellipse_at_80%_80%,oklch(0.38_0.1_230/0.22),transparent_50%)]"
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,oklch(0.42_0.14_250/0.32),transparent_55%),radial-gradient(ellipse_at_80%_80%,oklch(0.38_0.1_220/0.2),transparent_50%)]"
           />
           <div
             aria-hidden

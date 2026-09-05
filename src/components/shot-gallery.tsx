@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
 import { ProjectShot } from "@/components/project-shot";
+import { ShotLightbox } from "@/components/shot-lightbox";
+
+const emptySubscribe = () => () => {};
 
 export function ShotGallery({
   shots,
@@ -13,11 +16,11 @@ export function ShotGallery({
   title: string;
 }) {
   const [index, setIndex] = useState<number | null>(null);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   useEffect(() => {
     if (index === null) return;
@@ -64,21 +67,11 @@ export function ShotGallery({
       </div>
       {mounted && current
         ? createPortal(
-            <div
-              role="dialog"
-              aria-modal="true"
-              aria-label={`${title} 截图预览`}
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 sm:p-8"
-              onClick={() => setIndex(null)}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element -- lightbox preview */}
-              <img
-                src={current}
-                alt={`${title} 截图 ${(index ?? 0) + 1}`}
-                className="max-h-[90vh] max-w-full object-contain"
-                onClick={(event) => event.stopPropagation()}
-              />
-            </div>,
+            <ShotLightbox
+              src={current}
+              alt={`${title} 截图 ${(index ?? 0) + 1}`}
+              onClose={() => setIndex(null)}
+            />,
             document.body
           )
         : null}

@@ -1,53 +1,85 @@
 export const site = {
   name: "霍宝珊",
   role: "AI Application Engineer",
+  brand: "Data & AI Builder",
   location: "深圳 / 广州",
   status: "Open to Intern",
   tagline:
     "专注 AI 应用开发与工作流设计，擅长利用 LLM + RAG 构建真实可落地的产品。",
-  skills: ["LangChain", "FastAPI", "React", "Cursor"],
+  about:
+    "以数据分析与数学建模为底，用工程方式把大模型做成可检索、可评估、可交付的应用。",
+  skills: ["LangChain", "FastAPI", "Python", "RAG"],
   github: "https://github.com/SomeH-Bosx",
+  portfolioUrl: "https://github.com/SomeH-Bosx/Collection",
   email: "Appler__77@163.com",
-  resumeFileName: "HUO_Baoshan_AI_Application_Resume.pdf",
-  resumeUrl: "/HUO_Baoshan_AI_Application_Resume.pdf",
   contactLine: "寻找 AI 应用 / Agent / LLM 开发方向实习机会。",
-  highlights: [
-    { label: "学历", value: "双非二本 · 信息与计算科学" },
-    { label: "意向城市", value: "深圳 / 广州" },
-    { label: "竞赛", value: "数学建模一等奖 · 统计建模二等奖" },
-    { label: "方向", value: "AI 应用 · Agent · RAG" },
-  ],
   education: [
-    { label: "学历", value: "双非二本" },
+    { label: "学校", value: "广东技术师范大学" },
     { label: "专业", value: "信息与计算科学" },
+    { label: "就读时间", value: "2023.09 ~ 2027.07" },
     { label: "意向城市", value: "深圳 / 广州" },
   ],
-  contests: [
-    { label: "数学建模", value: "一等奖" },
-    { label: "统计建模", value: "二等奖" },
+  resumes: [
+    {
+      label: "AI Resume",
+      href: "/resume/ai-resume.pdf",
+      fileName: "HUO_Baoshan_AI_Resume.pdf",
+    },
+    {
+      label: "Data Resume",
+      href: "/resume/data-resume.pdf",
+      fileName: "HUO_Baoshan_Data_Resume.pdf",
+    },
   ],
   skillMatrix: [
     {
-      category: "AI 应用",
-      items: ["LangChain", "OpenAI SDK", "Ollama", "DashScope"],
+      category: "AI Application",
+      items: [
+        "LangChain",
+        "Ollama",
+        "Chroma",
+        "BM25",
+        "Reranker",
+        "DashScope",
+        "Structured Output",
+      ],
     },
     {
-      category: "Backend",
-      items: ["Python", "FastAPI", "SQLAlchemy"],
+      category: "Backend Engineering",
+      items: ["Python", "FastAPI", "SQLAlchemy", "SQLite", "Streamlit", "Pydantic"],
     },
     {
-      category: "Frontend",
-      items: ["React", "Next.js", "Tailwind"],
+      category: "Data Analysis",
+      items: ["Pandas", "NumPy", "SQL", "XGBoost", "Statistical Modeling"],
     },
     {
-      category: "Engineering",
-      items: ["Git", "Docker", "GitHub Actions"],
+      category: "Engineering Tools",
+      items: ["Git", "Docker", "Linux", "GitHub Actions", "Cursor", "Claude Code"],
+    },
+  ],
+  competitions: [
+    {
+      title: "Provincial First Prize",
+      field: "Mathematical Modeling",
+      contest: "全国五一数学建模大赛",
+      date: "2025.05",
+      role: "团队核心编程与数据分析负责人",
+      keywords: ["社交媒体分析", "百万级数据", "Logistic 回归", "XGBoost"],
+    },
+    {
+      title: "Provincial Second Prize",
+      field: "Statistical Modeling",
+      contest: "全国大学生数学建模大赛",
+      date: "2025.09",
+      role: "编程手",
+      keywords: ["GAMM", "TOPSIS", "生存分析", "Bootstrap"],
     },
   ],
 } as const;
 
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/#projects", label: "Projects" },
-  { href: "/about/", label: "About" },
+  { href: "/projects/", label: "Projects" },
+  { href: "/resume/", label: "Resume" },
+  { href: "/contact/", label: "Contact" },
 ] as const;

@@ -20,11 +20,11 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "rag",
-    title: "Enterprise RAG Knowledge Base",
+    title: "Enterprise RAG",
     subtitle: "Case Study",
     description:
-      "用 LangChain + Chroma + Ollama 构建企业级知识库问答系统，支持混合检索、语义重排、多轮对话与引用溯源。",
-    tags: ["LLM", "RAG", "FastAPI"],
+      "Enterprise knowledge base with Hybrid Retrieval, Reranker and observable evaluation.",
+    tags: ["LangChain", "FastAPI", "Chroma", "Ollama", "Docker"],
     cover: "/images/projects/rag/cover.jpg",
     shots: [
       "/images/projects/rag/shot-1.jpg",
@@ -35,18 +35,17 @@ export const projects: Project[] = [
     github: "https://github.com/SomeH-Bosx/enterprise-rag",
     href: "/projects/rag/",
     ctas: [
-      { label: "GitHub", href: "https://github.com/SomeH-Bosx/enterprise-rag" },
-      { label: "Demo Video", href: "/projects/rag/#demo" },
       { label: "Case Study", href: "/projects/rag/" },
+      { label: "GitHub", href: "https://github.com/SomeH-Bosx/enterprise-rag" },
     ],
   },
   {
     slug: "finpilot",
-    title: "FinPilot · AI 财务助手",
+    title: "FinPilot",
     subtitle: "AI Product",
     description:
-      "从用户真实预算痛点出发设计 AI 财务产品，实现预算划分、资金归属、消费分析与智能建议。",
-    tags: ["AI Product", "React", "Workflow"],
+      "AI Zero-Based Budget Copilot for multi-account personal finance management.",
+    tags: ["Taro", "FastAPI", "SQLite", "AI Product"],
     cover: "/images/projects/finpilot/cover.jpg",
     shots: [
       "/images/projects/finpilot/shot-1.jpg",
@@ -60,9 +59,8 @@ export const projects: Project[] = [
     github: "https://github.com/SomeH-Bosx/FinPilot",
     href: "/projects/finpilot/",
     ctas: [
+      { label: "Case Study", href: "/projects/finpilot/" },
       { label: "GitHub", href: "https://github.com/SomeH-Bosx/FinPilot" },
-      { label: "Product Demo", href: "/projects/finpilot/#demo" },
-      { label: "Design Process", href: "/projects/finpilot/#process" },
     ],
   },
 ];

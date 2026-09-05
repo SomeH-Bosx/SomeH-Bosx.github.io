@@ -1,7 +1,7 @@
 import Link from "next/link";
 
+import { BadgeList } from "@/components/badge-list";
 import { ProjectCover } from "@/components/project-cover";
-import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <article>
-      <Card className="relative rounded-[20px] bg-card/80 pt-0 ring-foreground/10 hover:ring-foreground/25">
+      <Card className="relative gap-4 rounded-[20px] bg-card/80 pt-0 ring-foreground/10 hover:ring-brand/40">
         <Link
           href={project.href}
           className="absolute inset-0 z-10 rounded-[20px]"
@@ -25,32 +25,14 @@ export function ProjectCard({ project }: { project: Project }) {
           <span className="sr-only">查看 {project.title}</span>
         </Link>
         <ProjectCover src={project.cover} alt={`${project.title} 封面`} />
-        <div className="grid grid-cols-3 gap-1 px-4">
-          {project.shots.slice(0, 3).map((shot) => (
-            // eslint-disable-next-line @next/next/no-img-element -- card thumbnails
-            <img
-              key={shot}
-              src={shot}
-              alt=""
-              className="aspect-[4/3] w-full rounded-lg object-cover"
-              suppressHydrationWarning
-            />
-          ))}
-        </div>
-        <CardHeader>
+        <CardHeader className="pt-0">
           <p className="text-xs tracking-wide text-muted-foreground uppercase">
             {project.subtitle}
           </p>
           <CardTitle className="text-xl">{project.title}</CardTitle>
-          <ul className="mt-2 flex flex-wrap gap-1.5">
-            {project.tags.map((tag) => (
-              <li key={tag}>
-                <Badge variant="secondary" className="h-6 rounded-full px-2.5">
-                  {tag}
-                </Badge>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-2">
+            <BadgeList items={project.tags} />
+          </div>
         </CardHeader>
         <CardContent>
           <CardDescription className="text-sm leading-relaxed">
@@ -58,20 +40,25 @@ export function ProjectCard({ project }: { project: Project }) {
           </CardDescription>
         </CardContent>
         <CardFooter className="relative z-20 flex flex-wrap gap-2 border-t-0 bg-transparent">
-          {project.ctas.map((cta, index) => (
-            <Link
-              key={cta.label}
-              href={cta.href}
-              className={cn(
-                buttonVariants({
-                  variant: index === 0 ? "default" : "outline",
-                  size: "sm",
-                })
-              )}
-            >
-              {cta.label}
-            </Link>
-          ))}
+          {project.ctas.map((cta, index) => {
+            const external = cta.href.startsWith("http");
+            return (
+              <Link
+                key={cta.label}
+                href={cta.href}
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
+                className={cn(
+                  buttonVariants({
+                    variant: index === 0 ? "default" : "outline",
+                    size: "sm",
+                  })
+                )}
+              >
+                {cta.label}
+              </Link>
+            );
+          })}
         </CardFooter>
       </Card>
     </article>

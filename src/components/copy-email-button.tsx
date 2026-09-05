@@ -1,32 +1,31 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react";
 import { createPortal } from "react-dom";
 
-import { buttonVariants } from "@/components/ui/button";
 import { site } from "@/data/site";
-import { cn } from "@/lib/utils";
 
 const TOAST_MS = 1500;
-
-const defaultClassName = cn(
-  buttonVariants({ variant: "outline", size: "lg" }),
-  "h-10 px-4"
-);
+const emptySubscribe = () => () => {};
 
 export function CopyEmailButton({
   className,
-  children = "Contact",
+  children,
 }: {
   className?: string;
-  children?: ReactNode;
+  children: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   useEffect(() => {
     if (!open) return;
@@ -53,11 +52,7 @@ export function CopyEmailButton({
 
   return (
     <>
-      <button
-        type="button"
-        onClick={copyEmail}
-        className={className ?? defaultClassName}
-      >
+      <button type="button" onClick={copyEmail} className={className}>
         {children}
       </button>
       {mounted && open
