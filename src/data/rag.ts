@@ -1,8 +1,8 @@
 export const ragCase = {
   quote: "一个真正的项目页面不是放代码，而是讲故事。",
   meta: [
-    { label: "开发时间", value: "2026.07 ~ 2026.08" },
-    { label: "周期", value: "1 个月" },
+    { label: "开发时间", value: "2026.07 ~ 至今" },
+    { label: "周期", value: "进行中" },
     { label: "角色", value: "独立开发" },
     { label: "技术", value: "LangChain / Chroma" },
     { label: "模型", value: "Ollama + Qwen" },
