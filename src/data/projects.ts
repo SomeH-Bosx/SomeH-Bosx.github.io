@@ -4,7 +4,7 @@ export type ProjectCta = {
 };
 
 export type Project = {
-  slug: "rag" | "finpilot";
+  slug: "rag" | "finpilot" | "economic-analysis";
   title: string;
   subtitle: string;
   description: string;
@@ -61,6 +61,26 @@ export const projects: Project[] = [
     ctas: [
       { label: "Case Study", href: "/projects/finpilot/" },
       { label: "GitHub", href: "https://github.com/SomeH-Bosx/FinPilot" },
+    ],
+  },
+  {
+    slug: "economic-analysis",
+    title: "Economic Analysis",
+    subtitle: "Data Analysis",
+    description:
+      "Data analysis and visualization of economic indicators using Python and Pandas.",
+    tags: ["Taro", "FastAPI", "SQLite", "AI Product"],
+    cover: "/images/projects/economic-analysis/cover.png",
+    shots: [
+      "/images/projects/economic-analysis/Overview.png",
+      "/images/projects/economic-analysis/RFM.png",
+    ],
+    video: "/videos/economics-demo.mp4",
+    github: "https://github.com/SomeH-Bosx/ecommerce-analysis",
+    href: "/projects/economic-analysis/",
+    ctas: [
+      { label: "Case Study", href: "/projects/economic-analysis/" },
+      { label: "GitHub", href: "https://github.com/SomeH-Bosx/ecommerce-analysis" },
     ],
   },
 ];
